@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+char *cards[] = {"2","3","4","5","6","7","8","9","10","J","Q","K","A"};
+
+int main() {
+   //Setup
+  char yn[256];
+  srand(time(NULL));
+  
+  do {
+    
+    // Play  
+    int r = rand() % 13; 
+    int a = rand() % 13;
+    /*  deal random card  */
+    printf("Player 1 Your Card Is %s\n", cards[r]);
+    printf("Player 2 Your Card Is %s\n", cards[a]);
+    if (r>a)
+      printf("Player 1 wins\n");
+    else
+      if (r<a)
+        printf("Player 2 wins\n");
+      else
+        printf("It's a tie\n");
+    puts ("Do this again?");
+    (void)scanf("%s",yn);
+  } while (yn[0]=='y');
+  return 0;
+}
